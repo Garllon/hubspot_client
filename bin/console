@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'hubspot_client'
+require 'dotenv'
+require 'pry'
+
+Dotenv.load
+
+HubspotClient.configure do |config|
+  config.access_token = ENV['ACCESS_TOKEN']
+end
+
+require 'irb'
+IRB.start(__FILE__)
