@@ -78,7 +78,7 @@ describe HubspotClient::ContactClient do
   end
 
   describe '#update' do
-    subject(:response) { described_class.new.update(34351, properties) }
+    subject(:response) { described_class.new.update(34301, properties) }
 
     let(:properties) { { firstname: 'Blubber' } }
 
