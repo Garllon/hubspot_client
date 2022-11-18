@@ -65,17 +65,7 @@ module HubspotClient
       let(:updatable_properties) { { firstname: firstname, lastname: lastname, email: email } }
       let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
 
-      it 'creates an contact object with correct firstname' do
-        expect(contact.firstname).to eq firstname
-      end
-
-      it 'creates an contact object with correct lastname' do
-        expect(contact.lastname).to eq lastname
-      end
-
-      it 'creates an contact object with correct email' do
-        expect(contact.email).to eq email
-      end
+      include_examples 'find contact'
 
       it 'excludes not_updatable_properties' do
         expect_any_instance_of(Client::Contact).to receive(:create).with(hash_excluding(not_updatable_properties))
