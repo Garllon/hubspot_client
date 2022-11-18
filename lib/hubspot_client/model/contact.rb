@@ -5,7 +5,7 @@ module HubspotClient
     class MissingParameter < StandardError; end
 
     class Contact < OpenStruct
-      UPDATABLE_PROPERTIES = %i[firstname lastname email].freeze
+      UPDATABLE_PROPERTIES = %i[firstname lastname email phone lifecyclestage].freeze
 
       def self.find(hubspot_id: nil, email: nil)
         response = if hubspot_id

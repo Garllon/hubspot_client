@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.hubapi.com/crm/v3/objects/contacts/34351?properties=firstname,lastname,email,phone,associatedcompanyid
+    uri: https://api.hubapi.com/crm/v3/objects/contacts/34351?properties=firstname,lastname,email,phone,lifecyclestage,associatedcompanyid
     body:
       encoding: US-ASCII
       string: ''
@@ -23,15 +23,15 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Nov 2022 12:24:08 GMT
+      - Fri, 18 Nov 2022 12:42:46 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '226'
+      - '239'
       Connection:
       - keep-alive
       Cf-Ray:
-      - 76c0ae6a2e80450a-TXL
+      - 76c0c9b4dd6758f6-TXL
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Vary:
@@ -41,11 +41,11 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'false'
       X-Hubspot-Correlation-Id:
-      - 47844273-871b-4615-8792-eeabd9da835d
+      - 0f227b8e-abb3-4353-8255-d5caafefa48a
       X-Hubspot-Ratelimit-Daily:
       - '250000'
       X-Hubspot-Ratelimit-Daily-Remaining:
-      - '249986'
+      - '249979'
       X-Hubspot-Ratelimit-Interval-Milliseconds:
       - '10000'
       X-Hubspot-Ratelimit-Max:
@@ -57,9 +57,9 @@ http_interactions:
       X-Hubspot-Ratelimit-Secondly-Remaining:
       - '9'
       X-Trace:
-      - 2B620C6C6CA0EF18E4F22D6F969529760D3D70BE8C000000000000000000
+      - 2BB6A966BD3D90FFD875C4CFF697FAFED183FB4A9B000000000000000000
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=WUD0cmR0V5jEmuV8Sjv6JntpqROlIz3ih%2Bb4HfdffpqvnwRByWUQ%2BcNcbXPpSPDVZawbdOlqY%2Bgqc4DE75HMvvgjkbbwRyB%2FMgnRzbhwiToQf3TEPsdVlEs%2BOUslu9bK"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=gCzwg4N%2FLmJ3ZjliJO%2F71WqUlgHVlK4MSnf9We%2F58AQKsjQzxDSSaOaOUFOxVPJHQefu4UWOYj1w3yHWcgpOU9lklZU0t3TqnUySFF3VDw%2Biji4AWhQGwQ83Bdkv%2FKvz"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Server:
@@ -68,6 +68,6 @@ http_interactions:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T12:20:08.744Z","lastname":"Testi","phone":"+4915212345678"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T12:20:08.744Z","archived":false}'
-  recorded_at: Fri, 18 Nov 2022 12:24:08 GMT
+      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T12:20:08.744Z","lastname":"Testi","lifecyclestage":"lead","phone":"+4915212345678"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T12:20:08.744Z","archived":false}'
+  recorded_at: Fri, 18 Nov 2022 12:42:45 GMT
 recorded_with: VCR 6.1.0
