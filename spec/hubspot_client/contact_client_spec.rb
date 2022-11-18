@@ -23,6 +23,12 @@ describe HubspotClient::ContactClient do
         expect(response['properties']['lastname']).to eq 'Testi'
       end
     end
+
+    it 'returns the correct phonenumber' do
+      VCR.use_cassette("contact_client/find_by_email") do
+        expect(response['properties']['phone']).to eq '+4915212345678'
+      end
+    end
   end
 
   describe '#find_by_id' do
@@ -64,13 +70,13 @@ describe HubspotClient::ContactClient do
       end
     end
 
-    it 'updates the firstname' do
+    it 'create the firstname' do
       VCR.use_cassette("contact_client/create") do
         expect(response['properties']['lastname']).to eq 'Vader'
       end
     end
 
-    it 'updates the firstname' do
+    it 'create the firstname' do
       VCR.use_cassette("contact_client/create") do
         expect(response['properties']['email']).to eq 'darth.vader@farbfox.de'
       end

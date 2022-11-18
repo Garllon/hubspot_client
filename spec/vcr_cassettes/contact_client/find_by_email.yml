@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.hubapi.com/crm/v3/objects/contacts/tester@example.com?idProperty=email&properties=firstname,lastname,email,associatedcompanyid
+    uri: https://api.hubapi.com/crm/v3/objects/contacts/tester@example.com?idProperty=email&properties=firstname,lastname,email,phone,associatedcompanyid
     body:
       encoding: US-ASCII
       string: ''
@@ -23,15 +23,15 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Nov 2022 07:14:23 GMT
+      - Fri, 18 Nov 2022 12:24:58 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '208'
+      - '226'
       Connection:
       - keep-alive
       Cf-Ray:
-      - 76bee8b2bfd6266d-TXL
+      - 76c0afa30a80453a-TXL
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Vary:
@@ -41,25 +41,25 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'false'
       X-Hubspot-Correlation-Id:
-      - b7fcbd7a-7c4d-4b87-a85e-02bedfd4b9e4
+      - 18425cae-eb91-47f5-9692-283bb737c754
       X-Hubspot-Ratelimit-Daily:
       - '250000'
       X-Hubspot-Ratelimit-Daily-Remaining:
-      - '249991'
+      - '249985'
       X-Hubspot-Ratelimit-Interval-Milliseconds:
       - '10000'
       X-Hubspot-Ratelimit-Max:
       - '100'
       X-Hubspot-Ratelimit-Remaining:
-      - '98'
+      - '99'
       X-Hubspot-Ratelimit-Secondly:
       - '10'
       X-Hubspot-Ratelimit-Secondly-Remaining:
       - '9'
       X-Trace:
-      - 2B99629804F3A0F4DF2A27C666BF027C42B3BD85EC000000000000000000
+      - 2B5960AF2483B41FE07244D524E7CFAE9AA9155A1F000000000000000000
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=kDh1timLsTKDTNzuDWNMWjq8UK%2FENjKHNm6cOeuNkTM3Vj9PK8Ri0kEdfj6FM7l5j4MipY8BEcvkiCvBIkJ5ZI4JAWJTAiP5gxCNgcu8osqy8BHt9PyTIP9DBC3LzflT"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=5BdnK759m7dOQmA1RCvSdpIdlUMu4jEb1jjK4hUZ8umsU9QPo0hKudSaDekSwS2KQeigmrHA64iSI3Hm%2Foy99oXhjUBbZYlZIFo0xDzrwjSACeyvPWsHgECuUhoyh2Vs"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Server:
@@ -68,6 +68,6 @@ http_interactions:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T07:11:30.295Z","lastname":"Testi"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T07:11:30.295Z","archived":false}'
-  recorded_at: Fri, 18 Nov 2022 07:14:23 GMT
+      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T12:20:08.744Z","lastname":"Testi","phone":"+4915212345678"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T12:20:08.744Z","archived":false}'
+  recorded_at: Fri, 18 Nov 2022 12:24:58 GMT
 recorded_with: VCR 6.1.0
