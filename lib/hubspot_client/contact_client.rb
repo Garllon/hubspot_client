@@ -10,7 +10,7 @@ module HubspotClient
       include HTTParty
       base_uri 'https://api.hubapi.com'
 
-      BASE_PATH = "/crm/v3/objects/contacts"
+      BASE_PATH = '/crm/v3/objects/contacts'
       FIND_PROPERTIES = %w[firstname lastname email phone lifecyclestage associatedcompanyid].freeze
 
       def find_by_email(email)

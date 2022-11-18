@@ -4,7 +4,7 @@ require 'spec_helper'
 
 module HubspotClient
   describe Model::Contact do
-    RSpec.shared_examples "find contact" do
+    RSpec.shared_examples 'find contact' do
       let(:firstname) { 'Darth' }
       let(:lastname) { 'Vader' }
       let(:email) { 'darth.vader@example.com' }
@@ -39,7 +39,7 @@ module HubspotClient
         before do
           allow_any_instance_of(Client::Contact)
             .to receive(:find_by_id)
-                  .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
+            .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
         end
 
         subject(:contact) { described_class.find(hubspot_id: '1337') }

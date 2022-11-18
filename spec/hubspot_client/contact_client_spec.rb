@@ -40,7 +40,7 @@ describe HubspotClient::Client::Contact do
       VCR.insert_cassette 'client/contact/find_by_id'
     end
 
-    subject(:response) { described_class.new.find_by_id(34351) }
+    subject(:response) { described_class.new.find_by_id('34351') }
 
     it 'returns status code 200' do
       expect(response.code).to be 200
@@ -94,7 +94,7 @@ describe HubspotClient::Client::Contact do
       VCR.insert_cassette 'client/contact/update'
     end
 
-    subject(:response) { described_class.new.update(34301, properties) }
+    subject(:response) { described_class.new.update('34301', properties) }
 
     let(:properties) { { firstname: 'Blubber' } }
 
