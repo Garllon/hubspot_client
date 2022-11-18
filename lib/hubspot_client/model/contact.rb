@@ -7,11 +7,11 @@ module HubspotClient
     class Contact < OpenStruct
       UPDATABLE_PROPERTIES = %i[firstname lastname email].freeze
 
-      def self.find(email: nil, hubspot_id: nil)
-        response = if email
-                     ContactClient.new.find_by_email(email)
-                   elsif hubspot_id
+      def self.find(hubspot_id: nil, email: nil)
+        response = if hubspot_id
                      ContactClient.new.find_by_id(hubspot_id)
+                   elsif email
+                     ContactClient.new.find_by_email(email)
                    else
                      raise MissingParameter, 'email or hubspot_id needs to be set'
                    end
