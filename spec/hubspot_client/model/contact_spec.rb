@@ -22,7 +22,6 @@ module HubspotClient
       end
     end
 
-
     describe '.find' do
       context 'email parameter is given' do
         before do
