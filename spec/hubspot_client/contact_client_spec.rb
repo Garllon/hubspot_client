@@ -2,14 +2,14 @@
 
 require 'spec_helper'
 
-describe HubspotClient::ContactClient do
+describe HubspotClient::Client::Contact do
   after do
     VCR.eject_cassette
   end
 
   describe '#find_by_email' do
     before do
-      VCR.insert_cassette 'contact_client/find_by_email'
+      VCR.insert_cassette 'client/contact/find_by_email'
     end
 
     subject(:response) { described_class.new.find_by_email('tester@example.com') }
@@ -37,7 +37,7 @@ describe HubspotClient::ContactClient do
 
   describe '#find_by_id' do
     before do
-      VCR.insert_cassette 'contact_client/find_by_id'
+      VCR.insert_cassette 'client/contact/find_by_id'
     end
 
     subject(:response) { described_class.new.find_by_id(34351) }
@@ -65,7 +65,7 @@ describe HubspotClient::ContactClient do
 
   describe '#create' do
     before do
-      VCR.insert_cassette 'contact_client/create'
+      VCR.insert_cassette 'client/contact/create'
     end
 
     subject(:response) { described_class.new.create(properties) }
@@ -91,7 +91,7 @@ describe HubspotClient::ContactClient do
 
   describe '#update' do
     before do
-      VCR.insert_cassette 'contact_client/update'
+      VCR.insert_cassette 'client/contact/update'
     end
 
     subject(:response) { described_class.new.update(34301, properties) }

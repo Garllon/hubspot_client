@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/crm/v3/objects/contacts/tester@example.com?idProperty=email&properties=firstname,lastname,email,phone,lifecyclestage,associatedcompanyid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Nov 2022 13:27:39 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '239'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 76c10b786915aca1-TXL
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - 82f171cc-26de-43c2-b039-7cb698ac6bdc
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249976'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '98'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2BB933572C99DB5CFA1F3B0C9EFF1CE3A10554DD7F000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=9ZzWy6%2FGLHwchJAx1hdpCZZHybzsvF9PfUucPICjRswnrZmu%2BK%2FzYVY0jkWu8gHzCXkT%2F%2BgIMrQrZyfWvKZCbP0V6MeJfwrPcIIZs7EElYHXI%2FLMfn75nsxSTJTOeLSG"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T12:20:08.744Z","lastname":"Testi","lifecyclestage":"lead","phone":"+4915212345678"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T12:20:08.744Z","archived":false}'
+  recorded_at: Fri, 18 Nov 2022 13:27:39 GMT
+recorded_with: VCR 6.1.0

@@ -9,9 +9,9 @@ module HubspotClient
 
       def self.find(hubspot_id: nil, email: nil)
         response = if hubspot_id
-                     ContactClient.new.find_by_id(hubspot_id)
+                     Client::Contact.new.find_by_id(hubspot_id)
                    elsif email
-                     ContactClient.new.find_by_email(email)
+                     Client::Contact.new.find_by_email(email)
                    else
                      raise MissingParameter, 'email or hubspot_id needs to be set'
                    end
@@ -21,14 +21,14 @@ module HubspotClient
 
       def self.create(properties)
         sliced_properties = properties.slice(*UPDATABLE_PROPERTIES)
-        response = ContactClient.new.create(sliced_properties)
+        response = Client::Contact.new.create(sliced_properties)
 
         new(response['properties'])
       end
 
       def update
         properties = to_h.slice(*UPDATABLE_PROPERTIES)
-        response = ContactClient.new.update(hs_object_id, properties)
+        response = Client::Contact.new.update(hs_object_id, properties)
 
         return true if response.code == 200
 
@@ -36,7 +36,7 @@ module HubspotClient
       end
 
       def reload
-        response = ContactClient.new.find_by_id(hs_object_id)
+        response = Client::Contact.new.find_by_id(hs_object_id)
         response['properties'].each do |key, value|
           self[key] = value if value != self[key]
         end

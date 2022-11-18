@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://api.hubapi.com/crm/v3/objects/contacts/34301
+    body:
+      encoding: UTF-8
+      string: '{"properties":{"firstname":"Blubber"}}'
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Nov 2022 13:31:17 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '192'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 76c110c79c074480-TXL
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - f46a147b-93fa-4a0e-a5f8-24abe57cf58d
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249973'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2B399EED689235851A0CFFF282FB13EEA64F8FB193000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=pHIMT7GTm050uKoNUUFkZVhNF97eMCzw3iQzM%2Fkio33PqkVnY2shj2q18Mx2Gt4EmNLRTNJ8lUBGOirYKh0D06%2BHwg6m%2BP7Y0CfQ58YNDrs5A2c%2FC19d4ieHapvYIN%2F7"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"34301","properties":{"createdate":"2022-11-17T13:37:03.992Z","firstname":"Blubber","hs_lifecyclestage_lead_date":"2022-11-17T13:37:03.992Z","hs_pipeline":"contacts-lifecycle-pipeline","lifecyclestage":"lead"},"createdAt":"2022-11-17T13:37:03.992Z","updatedAt":"2022-11-18T07:14:24.435Z","archived":false}'
+  recorded_at: Fri, 18 Nov 2022 13:31:17 GMT
+recorded_with: VCR 6.1.0

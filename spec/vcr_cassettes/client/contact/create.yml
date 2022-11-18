@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hubapi.com/crm/v3/objects/contacts
+    body:
+      encoding: UTF-8
+      string: '{"properties":{"firstname":"Darth","lastname":"Vader","email":"darth.vader@farbfox.de"}}'
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 18 Nov 2022 13:32:23 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '268'
+      Connection:
+      - keep-alive
+      Location:
+      - https://api.hubapi.com/crm/v3/objects/contacts/34501
+      Cf-Ray:
+      - 76c1126428e44534-TXL
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - 394a15d6-63c7-4575-b3ff-fd4f0289d22f
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249970'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2BDB29A672A774B350B372E50E4F4E650F0AA38239000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=5ZxT9DM6z9AwlAIGzTa4lDVOK2D06Cv8WKM0Ae6ZDvkE808Fwq01nc6P42Jb0ZejqAsA2dg%2F7EGEcRddJfbaXhLn%2FwfV9V8gKKYgtA3ETBr%2FYz67CZlZ1Mlykv33TX80"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"34501","properties":{"createdate":"2022-11-18T13:32:23.382Z","email":"darth.vader@farbfox.de","firstname":"Darth","hs_all_contact_vids":"34501","hs_email_domain":"farbfox.de","hs_is_contact":"true","hs_is_unworked":"true","hs_lifecyclestage_lead_date":"2022-11-18T13:32:23.382Z","hs_object_id":"34501","hs_pipeline":"contacts-lifecycle-pipeline","lastmodifieddate":"2022-11-18T13:32:23.382Z","lastname":"Vader","lifecyclestage":"lead"},"createdAt":"2022-11-18T13:32:23.382Z","updatedAt":"2022-11-18T13:32:23.382Z","archived":false}'
+  recorded_at: Fri, 18 Nov 2022 13:32:23 GMT
+recorded_with: VCR 6.1.0

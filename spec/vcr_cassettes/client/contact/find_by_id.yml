@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/crm/v3/objects/contacts/34351?properties=firstname,lastname,email,phone,lifecyclestage,associatedcompanyid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Nov 2022 13:31:17 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '239'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 76c110cbb8f6aca1-TXL
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - 19b67ea9-4c78-4242-a6e9-9df251e91a93
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249971'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '97'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2B003E8545C49B2FE0A1063E303A12B7DE714C5ACF000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=dO0x85dqlYrYQAlU3EJRwkT9XAMWnnpUbNpww8GePBrDPEY8pxodtTzofq4KCroIHqNwanGHUA80XocU2hIsem%2BTYgdwmPCLHTglTPR%2BjICjB2e6FanVI7qMDvFnTVFH"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T12:20:08.744Z","lastname":"Testi","lifecyclestage":"lead","phone":"+4915212345678"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T12:20:08.744Z","archived":false}'
+  recorded_at: Fri, 18 Nov 2022 13:31:17 GMT
+recorded_with: VCR 6.1.0
