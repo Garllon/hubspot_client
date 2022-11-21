@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HubspotClient
   module Client
     class CompanyNotFound < StandardError; end
@@ -8,11 +10,12 @@ module HubspotClient
       include HTTParty
       base_uri 'https://api.hubapi.com'
 
-      BASE_PATH = "/crm/v3/objects/comapnies"
-      FIND_PROPERTIES = %w(name phone address city zip).freeze
+      BASE_PATH = '/crm/v3/objects/companies'
+      FIND_PROPERTIES = %w[name phone address city zip].freeze
 
       def find_by_id(hubspot_id)
-        response = self.class.get("#{BASE_PATH}/#{hubspot_id}", headers: headers)
+        response = self.class.get("#{BASE_PATH}/#{hubspot_id}?properties=#{FIND_PROPERTIES.join(',')}",
+                                  headers: headers)
         return response if response.code == 200
 
         raise CompanyNotFound, 'Hubspot Company Not Found'

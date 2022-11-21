@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/crm/v3/objects/companies/6559302888?properties=name,phone,address,city,zip
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 21 Nov 2022 10:38:26 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '230'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 76d8cbb78fc9cae1-DUS
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - 1388686a-a8bc-4b04-976e-4e311ff02109
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249977'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2BC7040EDB5C391FA0EA6CF5B8CD0AA0F96D74CE1C000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=KQHTms1pU3PDle3lxl1%2BwaMaKY3apwI3klbVRotwBYu1DeTYRIIvu9Th8eXanlxSSeEtzV%2B4wBZ%2FwUv1AjNeelagfxNmTezxTq0cQGyGLAOrx0ZGWZLVsgbM5rG%2FIg2%2B"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6IjY1NTkzMDI4ODgiLCJwcm9wZXJ0aWVzIjp7ImFkZHJlc3MiOiJCbHViYmVyIFN0cmHDn2UgMjMiLCJjaXR5IjoiQmVybGluIiwiY3JlYXRlZGF0ZSI6IjIwMjItMTEtMTVUMTM6MjQ6NTkuNDM3WiIsImhzX2xhc3Rtb2RpZmllZGRhdGUiOiIyMDIyLTExLTE1VDEzOjI1OjAxLjI5MVoiLCJoc19vYmplY3RfaWQiOiI2NTU5MzAyODg4IiwibmFtZSI6IkJsdWJiZXIgVGVzdCBHbWJIIiwicGhvbmUiOiIwMTUxMzQ4MjM1ODk0ODk1IiwiemlwIjoiMTAxNDcifSwiY3JlYXRlZEF0IjoiMjAyMi0xMS0xNVQxMzoyNDo1OS40MzdaIiwidXBkYXRlZEF0IjoiMjAyMi0xMS0xNVQxMzoyNTowMS4yOTFaIiwiYXJjaGl2ZWQiOmZhbHNlfQ==
+  recorded_at: Mon, 21 Nov 2022 10:38:26 GMT
+recorded_with: VCR 6.1.0
