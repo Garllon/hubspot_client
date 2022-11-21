@@ -72,5 +72,31 @@ module HubspotClient
         company
       end
     end
+
+    describe '#update' do
+      before do
+        allow_any_instance_of(Client::Company)
+          .to receive(:update)
+          .and_return(double(HTTParty::Response, body: { 'properties' => properties }, code: 200))
+      end
+
+      properties_values = {
+        name: 'Todesstern Verwaltungs GmbH',
+        phone: '012523456789',
+        address: 'Plapatine Straße 23',
+        city: 'Berlin',
+        zip: '12634'
+      }
+
+      let(:properties) { updatable_properties.merge(not_updatable_properties) }
+      let(:updatable_properties) { properties_values }
+      let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
+
+      subject(:company) { described_class.new(properties.merge({ hs_object_id: '1337' })).update }
+
+      it 'returns true' do
+        expect(company).to eq true
+      end
+    end
   end
 end
