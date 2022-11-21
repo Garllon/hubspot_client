@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hubapi.com/crm/v3/objects/companies
+    body:
+      encoding: UTF-8
+      string: '{"properties":{"name":"Todesstern Verwaltungs GmbH","phone":"012523456789","address":"Plapatine
+        Straße 23","city":"Berlin","zip":"12634"}}'
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 21 Nov 2022 11:18:41 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '268'
+      Connection:
+      - keep-alive
+      Location:
+      - https://api.hubapi.com/crm/v3/objects/companies/6582942445
+      Cf-Ray:
+      - 76d906ab6f231635-DUS
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - 5da89606-4321-417f-b819-2629b93b5e60
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249976'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2B07B323617DB174E62BC806068F5570AA06F5046E000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=2nkJYPVU6yuTMmTsHekRzrpSoQwg91GJM%2FfMnd9zB33WcMSOJ%2F%2BoyRdIaaI9kHJMtMgpgx7cwP39CD2ZPtLw1iZ85SYt9DG4TT8wkHTqvFRfW221LjPYJX9WtE%2FohqJ5"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6IjY1ODI5NDI0NDUiLCJwcm9wZXJ0aWVzIjp7ImFkZHJlc3MiOiJQbGFwYXRpbmUgU3RyYcOfZSAyMyIsImNpdHkiOiJCZXJsaW4iLCJjcmVhdGVkYXRlIjoiMjAyMi0xMS0yMVQxMToxODo0MS4zMjNaIiwiaHNfbGFzdG1vZGlmaWVkZGF0ZSI6IjIwMjItMTEtMjFUMTE6MTg6NDEuMzIzWiIsImhzX29iamVjdF9pZCI6IjY1ODI5NDI0NDUiLCJoc19waXBlbGluZSI6ImNvbXBhbmllcy1saWZlY3ljbGUtcGlwZWxpbmUiLCJsaWZlY3ljbGVzdGFnZSI6ImxlYWQiLCJuYW1lIjoiVG9kZXNzdGVybiBWZXJ3YWx0dW5ncyBHbWJIIiwicGhvbmUiOiIwMTI1MjM0NTY3ODkiLCJ6aXAiOiIxMjYzNCJ9LCJjcmVhdGVkQXQiOiIyMDIyLTExLTIxVDExOjE4OjQxLjMyM1oiLCJ1cGRhdGVkQXQiOiIyMDIyLTExLTIxVDExOjE4OjQxLjMyM1oiLCJhcmNoaXZlZCI6ZmFsc2V9
+  recorded_at: Mon, 21 Nov 2022 11:18:41 GMT
+recorded_with: VCR 6.1.0

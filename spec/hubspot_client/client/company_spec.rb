@@ -27,7 +27,64 @@ describe HubspotClient::Client::Company do
     }
 
     properties_values.each do |property, value|
-      it 'returns the correct name' do
+      it "returns the correct #{property}" do
+        expect(response['properties'][property.to_s]).to eq value
+      end
+    end
+  end
+
+  describe '#create' do
+    before do
+      VCR.insert_cassette 'client/company/create'
+    end
+
+    subject(:response) { described_class.new.create(properties) }
+
+    properties_values = {
+      name: 'Todesstern Verwaltungs GmbH',
+      phone: '012523456789',
+      address: 'Plapatine Straße 23',
+      city: 'Berlin',
+      zip: '12634'
+    }
+
+    let(:properties) { properties_values }
+
+    it 'returns status code 201' do
+      expect(response.code).to be 201
+    end
+
+    properties_values.each do |property, value|
+      it "create with #{property}" do
+        expect(response['properties'][property.to_s]).to eq value
+      end
+    end
+  end
+
+  describe '#update' do
+    before do
+      VCR.insert_cassette 'client/company/update'
+    end
+
+    subject(:response) { described_class.new.update(hubspot_id, properties) }
+
+    properties_values = {
+      name: 'Todesstern Verwaltungs GmbH',
+      phone: '012523456789',
+      address: 'Plapatine Straße 23',
+      city: 'Berlin',
+      zip: '12634'
+    }
+
+    let(:hubspot_id) { '6564551665' }
+    let(:properties) { properties_values }
+
+    it 'returns status code 200' do
+      expect(response.code).to be 200
+    end
+
+    properties_values.each do |property, value|
+      it "create with #{property}" do
         expect(response['properties'][property.to_s]).to eq value
       end
     end
