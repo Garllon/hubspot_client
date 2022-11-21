@@ -8,11 +8,11 @@ describe HubspotClient::Client::Company do
   end
 
   describe '#find_by_id' do
+    subject(:response) { described_class.new.find_by_id('6559302888') }
+
     before do
       VCR.insert_cassette 'client/company/find_by_íd'
     end
-
-    subject(:response) { described_class.new.find_by_id('6559302888') }
 
     it 'returns status code 200' do
       expect(response.code).to be 200
@@ -34,11 +34,11 @@ describe HubspotClient::Client::Company do
   end
 
   describe '#create' do
+    subject(:response) { described_class.new.create(properties) }
+
     before do
       VCR.insert_cassette 'client/company/create'
     end
-
-    subject(:response) { described_class.new.create(properties) }
 
     properties_values = {
       name: 'Todesstern Verwaltungs GmbH',
@@ -62,11 +62,11 @@ describe HubspotClient::Client::Company do
   end
 
   describe '#update' do
+    subject(:response) { described_class.new.update(hubspot_id, properties) }
+
     before do
       VCR.insert_cassette 'client/company/update'
     end
-
-    subject(:response) { described_class.new.update(hubspot_id, properties) }
 
     properties_values = {
       name: 'Todesstern Verwaltungs GmbH',

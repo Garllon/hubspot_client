@@ -12,10 +12,16 @@ module HubspotClient
   end
 
   describe Model::Company do
+    let(:client_company) { instance_double(Client::Company) }
+
+    before do
+      allow(Client::Company).to receive(:new).and_return(client_company)
+    end
+
     describe '.find' do
-      context 'hubspot_id parameter is given' do
+      context 'when hubspot_id parameter is given' do
         before do
-          allow_any_instance_of(Client::Company)
+          allow(client_company)
             .to receive(:find_by_id)
             .and_return({ 'properties' => properties })
         end
@@ -39,7 +45,7 @@ module HubspotClient
 
     describe '.create' do
       before do
-        allow_any_instance_of(Client::Company)
+        allow(client_company)
           .to receive(:create)
           .and_return({ 'properties' => properties })
       end
@@ -61,23 +67,23 @@ module HubspotClient
       include_examples 'find company', properties_values
 
       it 'excludes not_updatable_properties' do
-        expect_any_instance_of(Client::Company).to receive(:create).with(hash_excluding(not_updatable_properties))
-
         company
+
+        expect(client_company).to have_received(:create).with(hash_excluding(not_updatable_properties))
       end
 
       it 'only use updatable properties' do
-        expect_any_instance_of(Client::Company).to receive(:create).with(updatable_properties)
-
         company
+
+        expect(client_company).to have_received(:create).with(updatable_properties)
       end
     end
 
     describe '#update' do
       before do
-        allow_any_instance_of(Client::Company)
+        allow(client_company)
           .to receive(:update)
-          .and_return(double(HTTParty::Response, body: { 'properties' => properties }, code: 200))
+          .and_return(instance_double(HTTParty::Response, body: { 'properties' => properties }, code: 200))
       end
 
       properties_values = {
