@@ -5,6 +5,7 @@ require 'hubspot_client/version'
 require 'hubspot_client/configuration'
 require 'hubspot_client/client/contact'
 require 'hubspot_client/client/company'
+require 'hubspot_client/client/properties'
 require 'hubspot_client/model/contact'
 
 module HubspotClient
