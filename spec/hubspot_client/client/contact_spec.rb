@@ -8,11 +8,11 @@ describe HubspotClient::Client::Contact do
   end
 
   describe '#find_by_email' do
+    subject(:response) { described_class.new.find_by_email('tester@example.com') }
+
     before do
       VCR.insert_cassette 'client/contact/find_by_email'
     end
-
-    subject(:response) { described_class.new.find_by_email('tester@example.com') }
 
     it 'returns status code 200' do
       expect(response.code).to be 200
@@ -36,11 +36,11 @@ describe HubspotClient::Client::Contact do
   end
 
   describe '#find_by_id' do
+    subject(:response) { described_class.new.find_by_id('34351') }
+
     before do
       VCR.insert_cassette 'client/contact/find_by_id'
     end
-
-    subject(:response) { described_class.new.find_by_id('34351') }
 
     it 'returns status code 200' do
       expect(response.code).to be 200
@@ -64,11 +64,11 @@ describe HubspotClient::Client::Contact do
   end
 
   describe '#create' do
+    subject(:response) { described_class.new.create(properties) }
+
     before do
       VCR.insert_cassette 'client/contact/create'
     end
-
-    subject(:response) { described_class.new.create(properties) }
 
     let(:properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@farbfox.de' } }
 
@@ -90,11 +90,11 @@ describe HubspotClient::Client::Contact do
   end
 
   describe '#update' do
+    subject(:response) { described_class.new.update('34301', properties) }
+
     before do
       VCR.insert_cassette 'client/contact/update'
     end
-
-    subject(:response) { described_class.new.update('34301', properties) }
 
     let(:properties) { { firstname: 'Blubber' } }
 

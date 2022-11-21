@@ -22,10 +22,16 @@ module HubspotClient
       end
     end
 
+    let(:client_contact) { instance_double(Client::Contact) }
+
+    before do
+      allow(Client::Contact).to receive(:new).and_return(client_contact)
+    end
+
     describe '.find' do
-      context 'email parameter is given' do
+      context 'when email parameter is given' do
         before do
-          allow_any_instance_of(Client::Contact)
+          allow(client_contact)
             .to receive(:find_by_email)
             .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
         end
@@ -35,9 +41,9 @@ module HubspotClient
         include_examples 'find contact'
       end
 
-      context 'hubspot_id parameter is given' do
+      context 'when hubspot_id parameter is given' do
         before do
-          allow_any_instance_of(Client::Contact)
+          allow(client_contact)
             .to receive(:find_by_id)
             .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
         end
@@ -49,33 +55,30 @@ module HubspotClient
     end
 
     describe '.create' do
+      subject(:contact) { described_class.create(properties) }
+
       before do
-        allow_any_instance_of(Client::Contact)
+        allow(client_contact)
           .to receive(:create)
           .and_return({ 'properties' => properties })
       end
 
-      subject(:contact) { described_class.create(properties) }
-
-      let(:firstname) { 'Darth' }
-      let(:lastname) { 'Vader' }
-      let(:email) { 'darth.vader@example.com' }
       let(:properties) { updatable_properties.merge(not_updatable_properties) }
-      let(:updatable_properties) { { firstname: firstname, lastname: lastname, email: email } }
+      let(:updatable_properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
       let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
 
       include_examples 'find contact'
 
       it 'excludes not_updatable_properties' do
-        expect_any_instance_of(Client::Contact).to receive(:create).with(hash_excluding(not_updatable_properties))
-
         contact
+
+        expect(client_contact).to have_received(:create).with(hash_excluding(not_updatable_properties))
       end
 
       it 'only use updatable properties' do
-        expect_any_instance_of(Client::Contact).to receive(:create).with(updatable_properties)
-
         contact
+
+        expect(client_contact).to have_received(:create).with(updatable_properties)
       end
     end
   end
