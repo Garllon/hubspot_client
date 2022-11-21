@@ -7,6 +7,7 @@ require 'hubspot_client/client/contact'
 require 'hubspot_client/client/company'
 require 'hubspot_client/client/properties'
 require 'hubspot_client/model/contact'
+require 'hubspot_client/model/company'
 
 module HubspotClient
   class << self
