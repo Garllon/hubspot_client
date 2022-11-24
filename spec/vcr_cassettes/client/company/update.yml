@@ -1,11 +1,12 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.hubapi.com/crm/v3/objects/contacts/tester@example.com?idProperty=email&properties=firstname,lastname,email,phone,lifecyclestage,associatedcompanyid
+    method: patch
+    uri: https://api.hubapi.com/crm/v3/objects/companies/6564551665
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"properties":{"name":"Todesstern Verwaltungs GmbH","phone":"012523456789","address":"Plapatine
+        Straße 23","city":"Berlin","zip":"12634"}}'
     headers:
       Authorization:
       - Bearer <BEARER_TOKEN>
@@ -23,15 +24,15 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Nov 2022 12:43:55 GMT
+      - Mon, 21 Nov 2022 11:31:20 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '239'
+      - '282'
       Connection:
       - keep-alive
       Cf-Ray:
-      - 76c0cb63ecfa2679-TXL
+      - 76d91931efd7cb2b-DUS
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Vary:
@@ -41,11 +42,11 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'false'
       X-Hubspot-Correlation-Id:
-      - e3f3a6b0-5c0f-4aaf-979a-bbf2f512c758
+      - 42865bdd-88f9-4988-83ad-1c1aefa78069
       X-Hubspot-Ratelimit-Daily:
       - '250000'
       X-Hubspot-Ratelimit-Daily-Remaining:
-      - '249978'
+      - '249975'
       X-Hubspot-Ratelimit-Interval-Milliseconds:
       - '10000'
       X-Hubspot-Ratelimit-Max:
@@ -57,9 +58,9 @@ http_interactions:
       X-Hubspot-Ratelimit-Secondly-Remaining:
       - '9'
       X-Trace:
-      - 2B6520A0C0839AAC9AB292EBBB77C374B1E0364277000000000000000000
+      - 2B4316B2563A47A5F8C6CD01AE11CF32772A2CE01D000000000000000000
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=tQ%2F%2F93HL%2BYLDii5Eb8PNsWh5sBDloXbEg0hmB2%2FzGNOWp0YRiRLo9q4ImLUDyru4pr890zo5KiEbUkkuISpPy2X4Ep2ynY%2FdluF7bYZrRr6tqi%2BR%2F%2BMx95kDQpcLXnKU"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=C667fronZdpHbfjBKK%2FtmwSXBPYxkhuJK2qp0w0iXPuRPTYsg1YTeubPaFlmkIDzDHva1F8DXs95kLRXNRVMoGMsrlnmjo22XztPbvkRGUIpW4NxHrcSKEM3IqwUNWOf"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Server:
@@ -68,6 +69,7 @@ http_interactions:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"34351","properties":{"associatedcompanyid":null,"createdate":"2022-11-17T13:37:34.061Z","email":"tester@example.com","firstname":"Tester","hs_object_id":"34351","lastmodifieddate":"2022-11-18T12:20:08.744Z","lastname":"Testi","lifecyclestage":"lead","phone":"+4915212345678"},"createdAt":"2022-11-17T13:37:34.061Z","updatedAt":"2022-11-18T12:20:08.744Z","archived":false}'
-  recorded_at: Fri, 18 Nov 2022 12:43:54 GMT
+      string: !binary |-
+        eyJpZCI6IjY1NjQ1NTE2NjUiLCJwcm9wZXJ0aWVzIjp7ImFkZHJlc3MiOiJQbGFwYXRpbmUgU3RyYcOfZSAyMyIsImNpdHkiOiJCZXJsaW4iLCJjcmVhdGVkYXRlIjoiMjAyMi0xMS0xNlQxMjo1MDoxNy4xODZaIiwiaHNfbGFzdG1vZGlmaWVkZGF0ZSI6IjIwMjItMTEtMjFUMTE6MzE6MjAuMjQyWiIsImhzX29iamVjdF9pZCI6IjY1NjQ1NTE2NjUiLCJoc19waXBlbGluZSI6ImNvbXBhbmllcy1saWZlY3ljbGUtcGlwZWxpbmUiLCJsaWZlY3ljbGVzdGFnZSI6ImxlYWQiLCJuYW1lIjoiVG9kZXNzdGVybiBWZXJ3YWx0dW5ncyBHbWJIIiwicGhvbmUiOiIwMTI1MjM0NTY3ODkiLCJ6aXAiOiIxMjYzNCJ9LCJjcmVhdGVkQXQiOiIyMDIyLTExLTE2VDEyOjUwOjE3LjE4NloiLCJ1cGRhdGVkQXQiOiIyMDIyLTExLTIxVDExOjMxOjIwLjI0MloiLCJhcmNoaXZlZCI6ZmFsc2V9
+  recorded_at: Mon, 21 Nov 2022 11:31:20 GMT
 recorded_with: VCR 6.1.0

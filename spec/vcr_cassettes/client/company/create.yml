@@ -2,10 +2,11 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.hubapi.com/crm/v3/objects/contacts
+    uri: https://api.hubapi.com/crm/v3/objects/companies
     body:
       encoding: UTF-8
-      string: '{"properties":{"firstname":"Darth","lastname":"Vader","email":"darth.vader@farbfox.de"}}'
+      string: '{"properties":{"name":"Todesstern Verwaltungs GmbH","phone":"012523456789","address":"Plapatine
+        Straße 23","city":"Berlin","zip":"12634"}}'
     headers:
       Authorization:
       - Bearer <BEARER_TOKEN>
@@ -23,17 +24,17 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 18 Nov 2022 07:14:24 GMT
+      - Mon, 21 Nov 2022 11:18:41 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '269'
+      - '268'
       Connection:
       - keep-alive
       Location:
-      - https://api.hubapi.com/crm/v3/objects/contacts/34451
+      - https://api.hubapi.com/crm/v3/objects/companies/6582942445
       Cf-Ray:
-      - 76bee8b389d0aca4-TXL
+      - 76d906ab6f231635-DUS
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Vary:
@@ -43,25 +44,25 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'false'
       X-Hubspot-Correlation-Id:
-      - a9415ab2-21ca-49ba-a4c4-eba14882f5aa
+      - 5da89606-4321-417f-b819-2629b93b5e60
       X-Hubspot-Ratelimit-Daily:
       - '250000'
       X-Hubspot-Ratelimit-Daily-Remaining:
-      - '249990'
+      - '249976'
       X-Hubspot-Ratelimit-Interval-Milliseconds:
       - '10000'
       X-Hubspot-Ratelimit-Max:
       - '100'
       X-Hubspot-Ratelimit-Remaining:
-      - '97'
+      - '99'
       X-Hubspot-Ratelimit-Secondly:
       - '10'
       X-Hubspot-Ratelimit-Secondly-Remaining:
       - '9'
       X-Trace:
-      - 2BE8E248869139F0B0E1A55B8A44CF8B1D7E7A29B9000000000000000000
+      - 2B07B323617DB174E62BC806068F5570AA06F5046E000000000000000000
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=UEv%2F3vPrjvvNbUH%2Flsr%2BmXSm3XEEpJ77a6lE%2Fp3%2FEQP9T3%2Byauy2afoFfG2UMQukrpQRfSMXEbLGgG6G%2F6LG76MqHXB%2FBkO%2Ff9cbw9d1ybF73kkSxnH1gn95lE0khpo4"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=2nkJYPVU6yuTMmTsHekRzrpSoQwg91GJM%2FfMnd9zB33WcMSOJ%2F%2BoyRdIaaI9kHJMtMgpgx7cwP39CD2ZPtLw1iZ85SYt9DG4TT8wkHTqvFRfW221LjPYJX9WtE%2FohqJ5"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Server:
@@ -70,6 +71,7 @@ http_interactions:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"34451","properties":{"createdate":"2022-11-18T07:14:23.976Z","email":"darth.vader@farbfox.de","firstname":"Darth","hs_all_contact_vids":"34451","hs_email_domain":"farbfox.de","hs_is_contact":"true","hs_is_unworked":"true","hs_lifecyclestage_lead_date":"2022-11-18T07:14:23.976Z","hs_object_id":"34451","hs_pipeline":"contacts-lifecycle-pipeline","lastmodifieddate":"2022-11-18T07:14:23.976Z","lastname":"Vader","lifecyclestage":"lead"},"createdAt":"2022-11-18T07:14:23.976Z","updatedAt":"2022-11-18T07:14:23.976Z","archived":false}'
-  recorded_at: Fri, 18 Nov 2022 07:14:24 GMT
+      string: !binary |-
+        eyJpZCI6IjY1ODI5NDI0NDUiLCJwcm9wZXJ0aWVzIjp7ImFkZHJlc3MiOiJQbGFwYXRpbmUgU3RyYcOfZSAyMyIsImNpdHkiOiJCZXJsaW4iLCJjcmVhdGVkYXRlIjoiMjAyMi0xMS0yMVQxMToxODo0MS4zMjNaIiwiaHNfbGFzdG1vZGlmaWVkZGF0ZSI6IjIwMjItMTEtMjFUMTE6MTg6NDEuMzIzWiIsImhzX29iamVjdF9pZCI6IjY1ODI5NDI0NDUiLCJoc19waXBlbGluZSI6ImNvbXBhbmllcy1saWZlY3ljbGUtcGlwZWxpbmUiLCJsaWZlY3ljbGVzdGFnZSI6ImxlYWQiLCJuYW1lIjoiVG9kZXNzdGVybiBWZXJ3YWx0dW5ncyBHbWJIIiwicGhvbmUiOiIwMTI1MjM0NTY3ODkiLCJ6aXAiOiIxMjYzNCJ9LCJjcmVhdGVkQXQiOiIyMDIyLTExLTIxVDExOjE4OjQxLjMyM1oiLCJ1cGRhdGVkQXQiOiIyMDIyLTExLTIxVDExOjE4OjQxLjMyM1oiLCJhcmNoaXZlZCI6ZmFsc2V9
+  recorded_at: Mon, 21 Nov 2022 11:18:41 GMT
 recorded_with: VCR 6.1.0

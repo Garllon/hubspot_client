@@ -34,6 +34,8 @@ The idea is that the models behave like an ActiveRecord Model.
 
 ### Contact - HubspotClient::Model::Contact
 
+[Hubspot- API](https://developers.hubspot.com/docs/api/crm/contacts)
+
 #### find
 You can find by `hubspot_id` or `email`
 ```ruby
@@ -43,6 +45,14 @@ HubspotClient::Model::Contact.find(hubspot_id: '1337')
 HubspotClient::Model::Contact.find(email: 'vader@example.com')
 => #<HubspotClient::Model::Contact createdate="2022-11-11T11:57:15.901Z", email="vader@example.com", firstname="Darth", hs_object_id="1337", lastmodifieddate="2022-11-17T13:31:00.526Z", lastname="Vader">
 ```
+
+### Company
+
+[Hubspot- API](https://developers.hubspot.com/docs/api/crm/companies)
+
+### Subscription-Preferences
+
+[Hubspot- API](https://developers.hubspot.com/docs/api/marketing-api/subscriptions-preferences)
 
 ## Development
 
