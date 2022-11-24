@@ -7,44 +7,35 @@ on:
 jobs:
   rspec:
     runs-on: ubuntu-latest
-
-    container: ruby:3.1.2
+    strategy:
+      matrix:
+        ruby: ['3.0', '3.1']
+    name: "ruby ${{ matrix.ruby }}"
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Gem cache
-        id: cache-bundle
-        uses: actions/cache@v3
+      - uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
-
+          ruby-version: ${{ matrix.ruby }}
       - name: Bundle install
-        env:
-          RAILS_ENV: test
         run: |
           gem install bundler
-          bundle install --jobs 4 --retry 3 --path vendor/bundle
-
+          bundle install
       - name: Run RSpec
-        env:
-          RAILS_ENV: test
-          PGHOST: postgres
-          PGUSER: postgres
-          PGPASSWORD: postgres
         run: |
-          bundle exec rails db:create db:schema:load
           bundle exec rspec
 
   rubocop:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
+          ruby-version: 3.1
+      - name: Bundle install
+        run: |
+          gem install bundler
+          bundle install
       - name: Run rubocop
         run: |
           bundle exec rubocop
