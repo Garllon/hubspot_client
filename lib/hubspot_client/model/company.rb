@@ -8,6 +8,8 @@ module HubspotClient
       def self.find(hubspot_id: nil)
         response = Client::Company.new.find_by_id(hubspot_id)
 
+        return nil if response['properties'].nil?
+
         new(response['properties'])
       end
 

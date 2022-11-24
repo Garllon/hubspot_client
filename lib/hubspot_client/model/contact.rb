@@ -43,6 +43,10 @@ module HubspotClient
 
         self
       end
+
+      def primary_company
+        @primary_company ||= Company.find(hubspot_id: associatedcompanyid)
+      end
     end
   end
 end
