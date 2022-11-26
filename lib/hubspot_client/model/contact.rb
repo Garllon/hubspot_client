@@ -49,8 +49,6 @@ module HubspotClient
         @primary_company ||= Company.find(hubspot_id: associatedcompanyid)
       end
 
-      private
-
       def assign_attributes(attributes)
         attributes.each do |attribute, value|
           self[attribute] = value
