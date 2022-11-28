@@ -7,7 +7,6 @@ module HubspotClient
     class ContactNotUpdated < StandardError; end
     class AssociationError < StandardError; end
 
-
     class Contact
       include HTTParty
       base_uri 'https://api.hubapi.com'

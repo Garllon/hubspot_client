@@ -93,7 +93,7 @@ module HubspotClient
       let(:updatable_properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
       let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
 
-      context 'without empty parameters'do
+      context 'without empty parameters' do
         subject(:contact) { described_class.new(properties.merge({ hs_object_id: '1337' })).update }
 
         it 'returns true' do
