@@ -46,6 +46,15 @@ module HubspotClient
         raise ContactNotUpdated, 'Hubspot could not update'
       end
 
+      def associate_with(hubspot_id, to_object_type, to_object_type_id, association_type = '1')
+        path = "#{BASE_PATH_V3}/#{hubspot_id}/associations/#{to_object_type}/#{to_object_type_id}/#{association_type}"
+        response = self.class.put(path, headers: headers)
+
+        return response if response.code == 200
+
+        raise AssociationError, response
+      end
+
       private
 
       def find_by(path)

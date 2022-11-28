@@ -49,6 +49,14 @@ module HubspotClient
         @primary_company ||= Company.find(hubspot_id: associatedcompanyid)
       end
 
+      def associate_primary_company(hubspot_id)
+        response = Client::Contact.new.associate_with(hs_object_id, 'companies', hubspot_id)
+
+        return true if response.code == 200
+
+        false
+      end
+
       def assign_attributes(attributes)
         attributes.each do |attribute, value|
           self[attribute] = value
