@@ -81,5 +81,33 @@ module HubspotClient
         expect(client_contact).to have_received(:create).with(updatable_properties)
       end
     end
+
+    describe '#update' do
+      before do
+        allow(client_contact)
+          .to receive(:update)
+          .and_return(instance_double(HTTParty::Response, body: { 'properties' => properties }, code: 200))
+      end
+
+      let(:properties) { updatable_properties.merge(not_updatable_properties) }
+      let(:updatable_properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
+      let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
+
+      context 'without empty parameters' do
+        subject(:contact) { described_class.new(properties.merge({ hs_object_id: '1337' })).update }
+
+        it 'returns true' do
+          expect(contact).to eq true
+        end
+      end
+
+      context 'with parameters' do
+        subject(:contact) { described_class.new({ hs_object_id: '1337' }).update(properties) }
+
+        it 'returns true' do
+          expect(contact).to eq true
+        end
+      end
+    end
   end
 end

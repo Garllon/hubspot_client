@@ -26,7 +26,8 @@ module HubspotClient
         new(response['properties'])
       end
 
-      def update
+      def update(new_properties = {})
+        assign_attributes(new_properties)
         properties = to_h.slice(*UPDATABLE_PROPERTIES)
         response = Client::Contact.new.update(hs_object_id, properties)
 
@@ -46,6 +47,20 @@ module HubspotClient
 
       def primary_company
         @primary_company ||= Company.find(hubspot_id: associatedcompanyid)
+      end
+
+      def associate_primary_company(hubspot_id)
+        response = Client::Contact.new.associate_with(hs_object_id, 'companies', hubspot_id)
+
+        return true if response.code == 200
+
+        false
+      end
+
+      def assign_attributes(attributes)
+        attributes.each do |attribute, value|
+          self[attribute] = value
+        end
       end
     end
   end
