@@ -20,7 +20,8 @@ module HubspotClient
         new(response['properties'])
       end
 
-      def update
+      def update(new_properties = {})
+        assign_attributes(new_properties)
         properties = to_h.slice(*UPDATABLE_PROPERTIES)
         response = Client::Company.new.update(hs_object_id, properties)
 
@@ -36,6 +37,12 @@ module HubspotClient
         end
 
         self
+      end
+
+      def assign_attributes(attributes)
+        attributes.each do |attribute, value|
+          self[attribute] = value
+        end
       end
     end
   end
