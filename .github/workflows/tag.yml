@@ -1,0 +1,19 @@
+name: Create/update tag
+on:
+  push:
+    branch: "tag-automatically"
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: get_version
+        run: |
+          content=`grep 'VERSION' ./lib/hubspot_client/version.rb | grep -o "\'[^>]*\'" | grep -o "[^\']*"`
+          echo "::set-output name=version::$content"
+      - name: Echo package.json
+        run: echo "${{ steps.get_version.outputs.version }}"
+#      - uses: rickstaa/action-create-tag@v1
+#        with:
+#          tag: "${{steps.get_version.outputs.version}}-blubber"
+#          message: "Latest release"
