@@ -28,14 +28,14 @@ describe HubspotClient::Client::CommunicationPreference do
   end
 
   describe '#subscribe' do
-    subject(:response) {
+    subject(:response) do
       described_class.new.subscribe(
         emailAddress: 'darth.vader@farbfox.de',
         subscriptionId: '141824865',
         legalBasis: 'CONSENT_WITH_NOTICE',
         legalBasisExplanation: 'this is an explanation'
       )
-    }
+    end
 
     before do
       VCR.insert_cassette 'client/communication_preference/subscribe'

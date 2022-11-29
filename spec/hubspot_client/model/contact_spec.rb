@@ -112,7 +112,6 @@ module HubspotClient
 
     describe '.create_communication_subscription' do
       subject(:contact) { described_class.new(email: 'darth.vader@example.com') }
-
       let(:client_communication_preference) { instance_double(Client::CommunicationPreference) }
 
       before do
@@ -131,7 +130,6 @@ module HubspotClient
         contact.create_communication_subscription(subscription_id: 'subscription_id_value',
                                                   legal_basis: 'legal_basis_value',
                                                   legal_basis_explanation: 'legal_basis_explanation_value')
-
         expect(client_communication_preference).to have_received(:subscribe).with(expected_properties)
       end
     end
