@@ -2,5 +2,5 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in graphql_connector.gemspec
+# Specify your gem's dependencies in hubspot_client.gemspec
 gemspec

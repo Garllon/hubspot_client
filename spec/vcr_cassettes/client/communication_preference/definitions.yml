@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/communication-preferences/v3/definitions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Nov 2022 13:35:21 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '216'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 771bb9e019851608-DUS
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - d0c9066b-3577-4474-a47c-76d87cdd6bdd
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249967'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=qEaJKvO3dlCj0FTip2rUEefMsiIHQmF6qDij2EqbOJrDoWWhqwn4krEgJzQaGG9kJZLW%2F0bQOy6qZvcb67Vjmj5QlJWYx4XNy0Sca9vC%2Fbahp%2FnOGmPcVykeyab3rlDU"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"subscriptionDefinitions":[{"id":"141824865","name":"Marketing Information","description":"Marketing
+        offers and updates.","purpose":"Marketing","communicationMethod":"Email","isActive":true,"isDefault":true,"isInternal":false,"createdAt":"2022-06-03T12:09:14.438Z","updatedAt":"2022-06-03T12:09:14.438Z"}]}'
+  recorded_at: Tue, 29 Nov 2022 13:35:21 GMT
+recorded_with: VCR 6.1.0

@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-You need to configure the `graphql_connector` first:
+You need to configure the `hubspot_client` first:
 ``` ruby
 HubspotClient.configure do |config|
   config.access_token = 'PRIVATE_APP_ACCESS_TOKEN'
