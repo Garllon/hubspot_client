@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-module HubspotClient  # rubocop:disable Metrics/ModuleLength
+module HubspotClient
   describe Model::Contact do
     RSpec.shared_examples 'find contact' do
       let(:firstname) { 'Darth' }
