@@ -2,10 +2,10 @@
 
 module HubspotClient
   module Client
-    class ContactNotFound < StandardError; end
-    class ContactNotCreated < StandardError; end
-    class ContactNotUpdated < StandardError; end
-    class AssociationError < StandardError; end
+    class ContactNotFound < ClientBaseError; end
+    class ContactNotCreated < ClientBaseError; end
+    class ContactNotUpdated < ClientBaseError; end
+    class AssociationError < ClientBaseError; end
 
     class Contact
       include HTTParty
@@ -32,7 +32,7 @@ module HubspotClient
 
         return response if response.code == 201
 
-        raise ContactNotCreated, 'Hubspot Contact Not created'
+        raise ContactNotCreated, response
       end
 
       def update(hubspot_id, properties)
@@ -42,7 +42,7 @@ module HubspotClient
 
         return response if response.code == 200
 
-        raise ContactNotUpdated, 'Hubspot could not update'
+        raise ContactNotUpdated, response
       end
 
       def associate_with(hubspot_id, to_object_type, to_object_type_id, association_type = '1')
@@ -60,7 +60,7 @@ module HubspotClient
         response = self.class.get(path, headers: headers)
         return response if response.code == 200
 
-        raise ContactNotFound, 'Hubspot Contact Not Found'
+        raise ContactNotFound, response
       end
 
       def find_query_params(query_params = {})
