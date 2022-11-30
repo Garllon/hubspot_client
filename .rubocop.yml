@@ -5,3 +5,7 @@ Layout/LineLength:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/hubspot_client/model/contact_spec.rb'
