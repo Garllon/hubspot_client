@@ -1,3 +1,12 @@
+## 0.1.0 (2022-11-30)
+
+### Features
+* add method for contact model to set communication preferences
+* added communication preference client
+
+### Breaking Changes
+None
+
 ## 0.1.0.beta2 (2022-11-28)
 
 ### Features

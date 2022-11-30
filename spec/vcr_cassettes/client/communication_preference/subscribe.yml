@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hubapi.com/communication-preferences/v3/subscribe
+    body:
+      encoding: UTF-8
+      string: '{"emailAddress":"darth.vader@farbfox.de","subscriptionId":"141824865","legalBasis":"CONSENT_WITH_NOTICE","legalBasisExplanation":"this
+        is an explanation"}'
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Nov 2022 13:54:45 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '216'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 771bd6461926715c-DUS
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - a67a347e-e9e1-4b25-aee1-87ff78402146
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249964'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=JcobVGrYBLuRAhx722CkyRztucWNwIGYXA%2Fu%2B7JPZdXbfVHXOuCYGnGE3w2dkWudGN2S2eI94LeU2M8u5bSxTrs7fbNtmsFUgfdXajvjlfqBUdrEqxOO6ICNnZnXb8wf"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"141824865","name":"Marketing Information","description":"Marketing
+        offers and updates.","status":"SUBSCRIBED","sourceOfStatus":"SUBSCRIPTION_STATUS","brandId":null,"preferenceGroupName":null,"legalBasis":"CONSENT_WITH_NOTICE","legalBasisExplanation":"this
+        is an explanation"}'
+  recorded_at: Tue, 29 Nov 2022 13:54:45 GMT
+recorded_with: VCR 6.1.0

@@ -45,6 +45,18 @@ module HubspotClient
         self
       end
 
+      def create_communication_subscription(subscription_id:, legal_basis: nil, legal_basis_explanation: nil)
+        properties = {
+          emailAddress: email,
+          subscriptionId: subscription_id
+        }
+
+        properties[:legalBasis] = legal_basis if legal_basis
+        properties[:legalBasisExplanation] = legal_basis_explanation if legal_basis_explanation
+
+        Client::CommunicationPreference.new.subscribe(properties)
+      end
+
       def primary_company
         @primary_company ||= Company.find(hubspot_id: associatedcompanyid)
       end
