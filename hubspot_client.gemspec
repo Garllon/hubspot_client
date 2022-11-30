@@ -7,8 +7,8 @@ require 'hubspot_client/version'
 Gem::Specification.new do |spec|
   spec.name          = 'hubspot_client'
   spec.version       = HubspotClient::VERSION
-  spec.authors       = %w[Garllon]
-  spec.email         = ['garllon@protonmail.com']
+  spec.authors       = %w[Garllon romankonz]
+  spec.email         = %w[garllon@protonmail.com roman@konz.me]
 
   spec.summary       = 'Hubspot client'
   spec.description   = 'Hubspot client to handle CRM objects.'
