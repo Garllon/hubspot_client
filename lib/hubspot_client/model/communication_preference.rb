@@ -3,7 +3,7 @@
 module HubspotClient
   module Model
     class CommunicationPreference
-      def self.all
+      def self.definitions
         Client::CommunicationPreference.new.definitions
       end
     end

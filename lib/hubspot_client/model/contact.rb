@@ -48,10 +48,11 @@ module HubspotClient
       def create_communication_subscription(subscription_id:, legal_basis: nil, legal_basis_explanation: nil)
         properties = {
           emailAddress: email,
-          subscriptionId: subscription_id,
-          legalBasis: legal_basis,
-          legalBasisExplanation: legal_basis_explanation
+          subscriptionId: subscription_id
         }
+
+        properties[:legalBasis] = legal_basis if legal_basis
+        properties[:legalBasisExplanation] = legal_basis_explanation if legal_basis_explanation
 
         Client::CommunicationPreference.new.subscribe(properties)
       end

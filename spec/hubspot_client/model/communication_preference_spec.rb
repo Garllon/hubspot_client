@@ -10,13 +10,13 @@ module HubspotClient
       allow(Client::CommunicationPreference).to receive(:new).and_return(client_communication_preference)
     end
 
-    describe '.all' do
+    describe '.definitions' do
       before do
         allow(client_communication_preference).to receive(:definitions)
       end
 
       it 'receives all definitions' do
-        described_class.all
+        described_class.definitions
 
         expect(client_communication_preference).to have_received(:definitions)
       end
