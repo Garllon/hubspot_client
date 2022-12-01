@@ -68,7 +68,7 @@ describe HubspotClient::Client::Company do
       VCR.insert_cassette 'client/company/update'
     end
 
-    properties_values = {
+    property_values = {
       name: 'Todesstern Verwaltungs GmbH',
       phone: '012523456789',
       address: 'Plapatine Straße 23',
@@ -77,13 +77,13 @@ describe HubspotClient::Client::Company do
     }
 
     let(:hubspot_id) { '6564551665' }
-    let(:properties) { properties_values }
+    let(:properties) { property_values }
 
     it 'returns status code 200' do
       expect(response.code).to be 200
     end
 
-    properties_values.each do |property, value|
+    property_values.each do |property, value|
       it "create with #{property}" do
         expect(response['properties'][property.to_s]).to eq value
       end

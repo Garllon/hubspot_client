@@ -64,28 +64,38 @@ describe HubspotClient::Client::Contact do
   end
 
   describe '#create' do
-    subject(:response) { described_class.new.create(properties) }
+    subject(:create) { described_class.new.create(properties) }
 
-    before do
-      VCR.insert_cassette 'client/contact/create'
+    context 'when it is successful' do
+      before do
+        VCR.insert_cassette 'client/contact/create/success'
+      end
+
+      property_values = { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@farbfox.de' }
+
+      let(:properties) { property_values }
+
+      it 'returns status code 201' do
+        expect(create.code).to be 201
+      end
+
+      property_values.each do |key, value|
+        it "create with #{key}" do
+          expect(create['properties'][key.to_s]).to eq value
+        end
+      end
     end
 
-    let(:properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@farbfox.de' } }
+    context 'when it returns an error' do
+      before do
+        VCR.insert_cassette 'client/contact/create/error'
+      end
 
-    it 'returns status code 201' do
-      expect(response.code).to be 201
-    end
+      let(:properties) { { email: 'invalid' } }
 
-    it 'create with firstname' do
-      expect(response['properties']['firstname']).to eq 'Darth'
-    end
-
-    it 'create with lastname' do
-      expect(response['properties']['lastname']).to eq 'Vader'
-    end
-
-    it 'create with email' do
-      expect(response['properties']['email']).to eq 'darth.vader@farbfox.de'
+      it 'returns status code 400' do
+        expect { create }.to raise_error(HubspotClient::Client::ContactNotCreated)
+      end
     end
   end
 
