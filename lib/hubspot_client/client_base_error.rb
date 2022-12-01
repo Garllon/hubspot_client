@@ -2,7 +2,7 @@
 
 class ClientBaseError < StandardError
   def initialize(response)
-    error_message = { status: response.code, body: response.body }
+    error_message = { status: response.code, body: JSON.parse(response.body) }
     super(error_message)
   end
 end
