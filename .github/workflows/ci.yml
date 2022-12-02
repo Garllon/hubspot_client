@@ -1,9 +1,7 @@
-name: Rspec and Rubocop
+name: CI
 
-on:
-  push:
-    branches-ignore:
-      - 'main'
+on: [push]
+
 jobs:
   rspec:
     runs-on: ubuntu-latest

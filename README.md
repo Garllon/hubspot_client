@@ -1,6 +1,10 @@
 
 # HubspotClient
 
+[![Gem
+Version](https://badge.fury.io/rb/hubspot_client.svg)](https://badge.fury.io/rb/hubspot_client)
+[![Rspec and Rubocop](https://github.com/Farbfox/hubspot_client/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Farbfox/hubspot_client/actions/workflows/ci.yml)
+
 A Hubspot Client. Currently we only support the following CRM Parts:
 * Contact
 * Company
