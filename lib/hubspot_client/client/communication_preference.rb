@@ -2,8 +2,8 @@
 
 module HubspotClient
   module Client
-    class SubscriptionNotSuccessful < StandardError; end
-    class FetchDefinitionsNotSuccessful < StandardError; end
+    class SubscriptionNotSuccessful < ClientBaseError; end
+    class FetchDefinitionsNotSuccessful < ClientBaseError; end
 
     class CommunicationPreference
       include HTTParty
@@ -17,7 +17,7 @@ module HubspotClient
 
         return response if response.code == 200
 
-        raise FetchDefinitionsNotSuccessful
+        raise FetchDefinitionsNotSuccessful, response
       end
 
       def subscribe(properties)
@@ -27,7 +27,7 @@ module HubspotClient
 
         return response if response.code == 200
 
-        raise SubscriptionNotSuccessful
+        raise SubscriptionNotSuccessful, response
       end
 
       def headers
