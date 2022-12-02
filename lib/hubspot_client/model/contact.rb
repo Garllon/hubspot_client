@@ -5,8 +5,6 @@ module HubspotClient
     class MissingParameter < StandardError; end
 
     class Contact < OpenStruct
-      UPDATABLE_PROPERTIES = %i[firstname lastname email phone lifecyclestage].freeze
-
       def self.find(hubspot_id: nil, email: nil)
         response = if hubspot_id
                      Client::Contact.new.find_by_id(hubspot_id)
@@ -20,16 +18,14 @@ module HubspotClient
       end
 
       def self.create(properties)
-        sliced_properties = properties.slice(*UPDATABLE_PROPERTIES)
-        response = Client::Contact.new.create(sliced_properties)
+        response = Client::Contact.new.create(properties)
 
         new(response['properties'])
       end
 
       def update(new_properties = {})
         assign_attributes(new_properties)
-        properties = to_h.slice(*UPDATABLE_PROPERTIES)
-        response = Client::Contact.new.update(hs_object_id, properties)
+        response = Client::Contact.new.update(hs_object_id, to_h)
 
         return true if response.code == 200
 

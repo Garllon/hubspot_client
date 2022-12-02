@@ -58,24 +58,16 @@ module HubspotClient
         zip: '12634'
       }
 
-      let(:properties) { updatable_properties.merge(not_updatable_properties) }
-      let(:updatable_properties) { properties_values }
-      let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
+      let(:properties) { properties_values }
 
       subject(:company) { described_class.create(properties) }
 
       include_examples 'find company', properties_values
 
-      it 'excludes not_updatable_properties' do
+      it 'only use properties' do
         company
 
-        expect(client_company).to have_received(:create).with(hash_excluding(not_updatable_properties))
-      end
-
-      it 'only use updatable properties' do
-        company
-
-        expect(client_company).to have_received(:create).with(updatable_properties)
+        expect(client_company).to have_received(:create).with(properties)
       end
     end
 
@@ -94,9 +86,7 @@ module HubspotClient
         zip: '12634'
       }
 
-      let(:properties) { updatable_properties.merge(not_updatable_properties) }
-      let(:updatable_properties) { properties_values }
-      let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
+      let(:properties) { properties_values }
 
       subject(:company) { described_class.new(properties.merge({ hs_object_id: '1337' })).update }
 
