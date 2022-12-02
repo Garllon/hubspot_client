@@ -1,7 +1,13 @@
 
 # HubspotClient
 
-An simple Hubspot Client. We only like to support the CRm features for the moment. Maybe we do more.
+A Hubspot Client. Currently we only support the following CRM Parts:
+* Contact
+* Company
+* Properties
+
+Also:
+* Communication Preferences
 
 ## Installation
 
@@ -30,9 +36,10 @@ end
 
 ## Models
 
-The idea is that the models behave like an ActiveRecord Model.
+The following models exists and should be mainly used. However you can also use the clients itself,
+if you like, but you need to understand the code by yourself.
 
-### Contact - HubspotClient::Model::Contact
+### Contact
 
 [Hubspot- API](https://developers.hubspot.com/docs/api/crm/contacts)
 
@@ -47,9 +54,8 @@ HubspotClient::Model::Contact.find(email: 'vader@example.com')
 => #<HubspotClient::Model::Contact createdate="2022-11-11T11:57:15.901Z", email="vader@example.com", firstname="Darth", hs_object_id="1337", lastmodifieddate="2022-11-17T13:31:00.526Z", lastname="Vader">
 ```
 
-#### Associate_primary_company
+#### associate_primary_company
 
-Successfull Request
 ```ruby
 hubspot_contact = HubspotClient::Model::Contact.find(hubspot_id: '1337')
 => #<HubspotClient::Model::Contact createdate="2022-11-11T11:57:15.901Z", email="vader@example.com", firstname="Darth", hs_object_id="1337", lastmodifieddate="2022-11-17T13:31:00.526Z", lastname="Vader"> 
@@ -104,7 +110,7 @@ hubspot_company.update({ name: 'Blubber' })
 
 
 
-### Subscription-Preferences
+### Communication-Preference
 
 [Hubspot- API](https://developers.hubspot.com/docs/api/marketing-api/subscriptions-preferences)
 

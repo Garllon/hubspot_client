@@ -29,12 +29,16 @@ module HubspotClient
     end
 
     describe '.find' do
+      before do
+        allow(client_contact)
+          .to receive(method)
+          .and_return({ 'properties' => properties })
+      end
+
+      let(:properties) { { firstname: firstname, lastname: lastname, email: email } }
+
       context 'when email parameter is given' do
-        before do
-          allow(client_contact)
-            .to receive(:find_by_email)
-            .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
-        end
+        let(:method) { 'find_by_email' }
 
         subject(:contact) { described_class.find(email: email) }
 
@@ -42,11 +46,7 @@ module HubspotClient
       end
 
       context 'when hubspot_id parameter is given' do
-        before do
-          allow(client_contact)
-            .to receive(:find_by_id)
-            .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
-        end
+        let(:method) { 'find_by_id' }
 
         subject(:contact) { described_class.find(hubspot_id: '1337') }
 
@@ -63,22 +63,14 @@ module HubspotClient
           .and_return({ 'properties' => properties })
       end
 
-      let(:properties) { updatable_properties.merge(not_updatable_properties) }
-      let(:updatable_properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
-      let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
+      let(:properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
 
       include_examples 'find contact'
 
-      it 'excludes not_updatable_properties' do
+      it 'updates the properties' do
         contact
 
-        expect(client_contact).to have_received(:create).with(hash_excluding(not_updatable_properties))
-      end
-
-      it 'only use updatable properties' do
-        contact
-
-        expect(client_contact).to have_received(:create).with(updatable_properties)
+        expect(client_contact).to have_received(:create).with(properties)
       end
     end
 
@@ -89,9 +81,7 @@ module HubspotClient
           .and_return(instance_double(HTTParty::Response, body: { 'properties' => properties }, code: 200))
       end
 
-      let(:properties) { updatable_properties.merge(not_updatable_properties) }
-      let(:updatable_properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
-      let(:not_updatable_properties) { { random_not_mutable_propertie: 'Anakin' } }
+      let(:properties) { { firstname: 'Darth', lastname: 'Vader', email: 'darth.vader@example.com' } }
 
       context 'without empty parameters' do
         subject(:contact) { described_class.new(properties.merge({ hs_object_id: '1337' })).update }

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'httparty'
+require 'hubspot_client/client_base_error'
 require 'hubspot_client/client/communication_preference'
 require 'hubspot_client/client/company'
 require 'hubspot_client/client/contact'

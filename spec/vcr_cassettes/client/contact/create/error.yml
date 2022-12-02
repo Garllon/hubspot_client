@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hubapi.com/crm/v3/objects/contacts
+    body:
+      encoding: UTF-8
+      string: '{"properties":{"email":"invalid"}}'
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 01 Dec 2022 12:30:51 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '265'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 772bd62389d8ca7d-HAM
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Hubspot-Correlation-Id:
+      - 60cb2990-1fc1-4810-a812-c291d299505c
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249996'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Trace:
+      - 2BE678CDCB82E8C9B1657DA4E697B8CB06021E59C0000000000000000000
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Pa%2BS1%2BcVT2FV8vXdNDcRdHm0yZeQQOKTooAHOiHoyvdI28OdzcpTPYPW7XtATc6jIW147kvvP1Ap7s7vcQbphDr3BlS5NQBu%2FLjrCWa5tKYhjtX0kLg%2B3qEjcVPpqs65"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"status":"error","message":"Property values were not valid: [{\"isValid\":false,\"message\":\"Email
+        address invalid is invalid\",\"error\":\"INVALID_EMAIL\",\"name\":\"email\"}]","correlationId":"60cb2990-1fc1-4810-a812-c291d299505c","category":"VALIDATION_ERROR"}'
+  recorded_at: Thu, 01 Dec 2022 12:30:51 GMT
+recorded_with: VCR 6.1.0

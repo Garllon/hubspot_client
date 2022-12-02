@@ -2,9 +2,9 @@
 
 module HubspotClient
   module Client
-    class CompanyNotFound < StandardError; end
-    class CompanyNotCreated < StandardError; end
-    class CompanyNotUpdated < StandardError; end
+    class CompanyNotFound < ClientBaseError; end
+    class CompanyNotCreated < ClientBaseError; end
+    class CompanyNotUpdated < ClientBaseError; end
 
     class Company
       include HTTParty
@@ -18,7 +18,7 @@ module HubspotClient
                                   headers: headers)
         return response if response.code == 200
 
-        raise CompanyNotFound, 'Hubspot Company Not Found'
+        raise CompanyNotFound, response
       end
 
       def create(properties)
@@ -28,7 +28,7 @@ module HubspotClient
 
         return response if response.code == 201
 
-        raise CompanyNotCreated, 'Hubspot could not Create'
+        raise CompanyNotCreated, response
       end
 
       def update(hubspot_id, properties)
@@ -38,7 +38,7 @@ module HubspotClient
 
         return response if response.code == 200
 
-        raise CompanyNotUpdated, 'Hubspot could not update'
+        raise CompanyNotUpdated, response
       end
 
       private
