@@ -8,4 +8,4 @@ Style/Documentation:
 
 Metrics/ModuleLength:
   Exclude:
-    - 'spec/hubspot_client/model/contact_spec.rb'
+#    - 'spec/hubspot_client/model/contact_spec.rb'

@@ -29,12 +29,16 @@ module HubspotClient
     end
 
     describe '.find' do
+      before do
+        allow(client_contact)
+          .to receive(method)
+          .and_return({ 'properties' => properties })
+      end
+
+      let(:properties) { { firstname: firstname, lastname: lastname, email: email } }
+
       context 'when email parameter is given' do
-        before do
-          allow(client_contact)
-            .to receive(:find_by_email)
-            .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
-        end
+        let(:method) { 'find_by_email' }
 
         subject(:contact) { described_class.find(email: email) }
 
@@ -42,11 +46,7 @@ module HubspotClient
       end
 
       context 'when hubspot_id parameter is given' do
-        before do
-          allow(client_contact)
-            .to receive(:find_by_id)
-            .and_return({ 'properties' => { firstname: firstname, lastname: lastname, email: email } })
-        end
+        let(:method) { 'find_by_id' }
 
         subject(:contact) { described_class.find(hubspot_id: '1337') }
 
