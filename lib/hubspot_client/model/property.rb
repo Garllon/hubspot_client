@@ -8,13 +8,12 @@ module HubspotClient
       end
 
       def self.writable_property_names_for(object_type)
-        readonly_properties = self.all_for(object_type)['results'].reject do |property|
+        readonly_properties = all_for(object_type)['results'].reject do |property|
           property['modificationMetadata']['readOnlyValue'] == true
         end
 
         readonly_properties.map { |property| property['name'].to_sym }
       end
-
     end
   end
 end

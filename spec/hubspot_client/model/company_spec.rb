@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require_relative '../shared/with_properties_stub'
 
 module HubspotClient
   RSpec.shared_examples 'find company' do |properties|
@@ -12,6 +13,8 @@ module HubspotClient
   end
 
   describe Model::Company do
+    include_context 'with properties stub'
+
     let(:client_company) { instance_double(Client::Company) }
 
     before do

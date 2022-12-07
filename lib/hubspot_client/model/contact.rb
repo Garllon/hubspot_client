@@ -74,7 +74,7 @@ module HubspotClient
       private
 
       def writable_properties
-        HubspotClient::Service::Properties.writable_property_names_for('contacts')
+        HubspotClient::Model::Property.writable_property_names_for('contacts')
       end
     end
   end

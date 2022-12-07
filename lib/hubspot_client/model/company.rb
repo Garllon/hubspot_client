@@ -44,7 +44,7 @@ module HubspotClient
       private
 
       def writable_properties
-        HubspotClient::Service::Properties.writable_property_names_for('companies')
+        HubspotClient::Model::Property.writable_property_names_for('companies')
       end
     end
   end
