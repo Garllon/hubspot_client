@@ -25,7 +25,7 @@ module HubspotClient
 
       def update(new_properties = {})
         assign_attributes(new_properties)
-        response = Client::Contact.new.update(hs_object_id, to_h)
+        response = Client::Contact.new.update(hs_object_id, to_h.slice(*writable_properties))
 
         return true if response.code == 200
 
@@ -69,6 +69,12 @@ module HubspotClient
         attributes.each do |attribute, value|
           self[attribute] = value
         end
+      end
+
+      private
+
+      def writable_properties
+        HubspotClient::Service::Properties.writable_property_names_for('contacts')
       end
     end
   end
