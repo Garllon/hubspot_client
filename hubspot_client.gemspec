@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'httparty', '~> 0.20.0'
+  spec.add_dependency 'httparty', '>= 0.20', '< 0.22'
 
   spec.add_development_dependency 'bundler', '~> 2.3.26'
   spec.add_development_dependency 'dotenv', '~> 2.8', '>= 2.8.1'
