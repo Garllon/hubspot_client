@@ -4,6 +4,8 @@
 [![Gem
 Version](https://badge.fury.io/rb/hubspot_client.svg)](https://badge.fury.io/rb/hubspot_client)
 [![Rspec and Rubocop](https://github.com/Farbfox/hubspot_client/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Farbfox/hubspot_client/actions/workflows/ci.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ceed6d4994b8705c8558/maintainability)](https://codeclimate.com/github/Farbfox/hubspot_client/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ceed6d4994b8705c8558/test_coverage)](https://codeclimate.com/github/Farbfox/hubspot_client/test_coverage)
 
 A Hubspot Client. Currently we only support the following CRM Parts:
 * Contact
@@ -111,8 +113,6 @@ hubspot_company.update
 # you can also do it directly in the update method:
 hubspot_company.update({ name: 'Blubber' })
 ```
-
-
 
 ### Communication-Preference
 
