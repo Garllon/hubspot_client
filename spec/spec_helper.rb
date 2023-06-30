@@ -27,6 +27,12 @@ VCR.configure do |config|
       match.captures.first
     end
   end
+
+  config.filter_sensitive_data('<FORM_STRING_ID>') do |interaction|
+    body = JSON.parse(interaction.response.body)
+
+    body['results']&.first&.[]('id') if body['results']
+  end
 end
 
 Dotenv.load
