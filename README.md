@@ -118,6 +118,32 @@ hubspot_company.update({ name: 'Blubber' })
 
 [Hubspot- API](https://developers.hubspot.com/docs/api/marketing-api/subscriptions-preferences)
 
+## Clients
+
+Clients are normally under the hood of models. However you can use them directly if you like.
+
+### Submission
+
+[forms/submit_form_v3_authentication](https://legacydocs.hubspot.com/docs/methods/forms/submit_form_v3_authentication#:~:text=As%20this%20API%20is%20authenticated%2C)
+
+With the `HubspotClient::Client::Form.all_forms` method you can get all forms from your hubspot instance.
+Checkout which fields you need. 
+
+```ruby
+HubspotClient::Client::Submission.new(portal_id: '1337', form_guid: '1337', fields: fields).submit
+```
+
+The `fields` parameter is a list of objects with the following properties: 
+```ruby
+[
+  {
+    "objectTypeId": '0-1',
+    "name": 'email',
+    "value": 'darth_garllon@example.com'
+  }
+]
+```
+
 ## Development
 
 After checking out the repo, run
