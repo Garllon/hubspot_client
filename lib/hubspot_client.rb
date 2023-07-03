@@ -12,6 +12,7 @@ require 'hubspot_client/configuration'
 require 'hubspot_client/model/communication_preference'
 require 'hubspot_client/model/company'
 require 'hubspot_client/model/contact'
+require 'hubspot_client/model/property'
 require 'hubspot_client/version'
 
 module HubspotClient

@@ -19,7 +19,7 @@ module HubspotClient
 
       def update(new_properties = {})
         assign_attributes(new_properties)
-        response = Client::Company.new.update(hs_object_id, to_h)
+        response = Client::Company.new.update(hs_object_id, to_h.slice(*writable_properties))
 
         return true if response.code == 200
 
@@ -39,6 +39,12 @@ module HubspotClient
         attributes.each do |attribute, value|
           self[attribute] = value
         end
+      end
+
+      private
+
+      def writable_properties
+        HubspotClient::Model::Property.writable_property_names_for('companies')
       end
     end
   end

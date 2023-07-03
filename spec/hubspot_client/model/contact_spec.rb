@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require_relative '../shared/with_properties_stub'
 
 module HubspotClient
   describe Model::Contact do
+    include_context 'with properties stub'
+
     RSpec.shared_examples 'find contact' do
       let(:firstname) { 'Darth' }
       let(:lastname) { 'Vader' }
