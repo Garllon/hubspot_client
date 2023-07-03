@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/marketing/v3/forms/?limit=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 30 Jun 2023 13:46:38 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '710'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 7df6db45faedcaa5-HAM
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - origin, Accept-Encoding
+      Access-Control-Allow-Credentials:
+      - 'false'
+      X-Envoy-Upstream-Service-Time:
+      - '23'
+      X-Evy-Trace-Listener:
+      - listener_https
+      X-Evy-Trace-Route-Configuration:
+      - listener_https/all
+      X-Evy-Trace-Route-Service-Name:
+      - envoyset-translator
+      X-Evy-Trace-Served-By-Pod:
+      - fra04/hubapi-td/envoy-proxy-6568b767df-kjkc9
+      X-Evy-Trace-Virtual-Host:
+      - all
+      X-Hubspot-Correlation-Id:
+      - 60d06a54-5d79-4745-8696-54a605e63767
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249990'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      X-Request-Id:
+      - 60d06a54-5d79-4745-8696-54a605e63767
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Wj5D%2Bt0knmYS0UdNGnbNmefXdSxQdCU28y3P1it2Ww%2Fpw783hPlswILxYPeL2qBdwFspX6H6N5ag6WDlWttzPb%2FMeN%2B1jM0fYri357MP3iz7I92KYGsk9uTk2RN31z8v"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"results":[{"id":"<FORM_STRING_ID>","name":"Test Formular","createdAt":"2023-06-30T11:29:50.120Z","updatedAt":"2023-06-30T13:42:41.747Z","archived":false,"fieldGroups":[{"groupType":"default_group","richTextType":"text","fields":[{"objectTypeId":"0-1","name":"email","label":"E-Mail","required":true,"hidden":false,"fieldType":"email","validation":{"blockedEmailDomains":[],"useDefaultBlockList":false}}]}],"configuration":{"language":"de","cloneable":true,"postSubmitAction":{"type":"thank_you","value":"Vielen
+        Dank, dass Sie das Formular eingesendet haben."},"editable":true,"archivable":true,"recaptchaEnabled":false,"notifyContactOwner":false,"notifyRecipients":["46952622"],"createNewContactForNewEmail":true,"prePopulateKnownValues":false,"allowLinkToResetKnownValues":false},"displayOptions":{"renderRawHtml":false,"theme":"default_style","submitButtonText":"Einsenden","style":{"fontFamily":"arial,
+        helvetica, sans-serif","backgroundWidth":"100%","labelTextColor":"#33475b","labelTextSize":"14px","helpTextColor":"#537393","helpTextSize":"11px","legalConsentTextColor":"#33475b","legalConsentTextSize":"14px","submitColor":"#ff7a59","submitAlignment":"left","submitFontColor":"#ffffff","submitSize":"12px"},"cssClass":"hs-form
+        stacked"},"legalConsentOptions":{"type":"none"},"formType":"hubspot"}]}'
+  recorded_at: Fri, 30 Jun 2023 13:46:38 GMT
+recorded_with: VCR 6.1.0

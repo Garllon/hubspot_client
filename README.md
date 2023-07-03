@@ -1,6 +1,12 @@
 
 # HubspotClient
 
+[![Gem
+Version](https://badge.fury.io/rb/hubspot_client.svg)](https://badge.fury.io/rb/hubspot_client)
+[![Rspec and Rubocop](https://github.com/Farbfox/hubspot_client/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Farbfox/hubspot_client/actions/workflows/ci.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ceed6d4994b8705c8558/maintainability)](https://codeclimate.com/github/Farbfox/hubspot_client/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ceed6d4994b8705c8558/test_coverage)](https://codeclimate.com/github/Farbfox/hubspot_client/test_coverage)
+
 A Hubspot Client. Currently we only support the following CRM Parts:
 * Contact
 * Company
@@ -108,11 +114,35 @@ hubspot_company.update
 hubspot_company.update({ name: 'Blubber' })
 ```
 
-
-
 ### Communication-Preference
 
 [Hubspot- API](https://developers.hubspot.com/docs/api/marketing-api/subscriptions-preferences)
+
+## Clients
+
+Clients are normally under the hood of models. However you can use them directly if you like.
+
+### Submission
+
+[forms/submit_form_v3_authentication](https://legacydocs.hubspot.com/docs/methods/forms/submit_form_v3_authentication#:~:text=As%20this%20API%20is%20authenticated%2C)
+
+With the `HubspotClient::Client::Form.all_forms` method you can get all forms from your hubspot instance.
+Checkout which fields you need. 
+
+```ruby
+HubspotClient::Client::Submission.new(portal_id: '1337', form_guid: '1337', fields: fields).submit
+```
+
+The `fields` parameter is a list of objects with the following properties: 
+```ruby
+[
+  {
+    "objectTypeId": '0-1',
+    "name": 'email',
+    "value": 'darth_garllon@example.com'
+  }
+]
+```
 
 ## Development
 

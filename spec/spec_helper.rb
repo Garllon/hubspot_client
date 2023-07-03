@@ -3,6 +3,14 @@
 require 'bundler/setup'
 Bundler.setup
 
+require 'simplecov'
+require 'simplecov_json_formatter'
+
+SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
+SimpleCov.start do
+  add_filter 'spec'
+end
+
 require 'hubspot_client'
 
 require 'dotenv'
@@ -17,6 +25,15 @@ VCR.configure do |config|
     auths = interaction.request.headers['Authorization'].first
     if (match = auths.match(/^Bearer\s+([^,\s]+)/))
       match.captures.first
+    end
+  end
+
+  config.filter_sensitive_data('<FORM_STRING_ID>') do |interaction|
+    hubspot_form_url = HubspotClient::Client::Form.base_uri + HubspotClient::Client::Form::BASE_PATH_V3
+
+    if interaction.request.uri.start_with?(hubspot_form_url)
+      body = JSON.parse(interaction.response.body)
+      body&.[]('results')&.first&.[]('id')
     end
   end
 end

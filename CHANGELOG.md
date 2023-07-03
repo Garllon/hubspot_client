@@ -1,3 +1,23 @@
+## 0.3.0
+
+### Features
+* add client form, to get all forms
+* add client submission, to submit forms
+
+## 0.2.1 (2022-12-07)
+
+### Patch
+* only update writeable properties
+
+## 0.2.0 (2022-12-02)
+
+### Features
+* Show response body, if the request was not successfully.
+* Remove whitelist updatable_properties
+
+### Breaking Changes
+None
+
 ## 0.1.0 (2022-11-30)
 
 ### Features
