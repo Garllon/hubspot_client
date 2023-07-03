@@ -29,9 +29,12 @@ VCR.configure do |config|
   end
 
   config.filter_sensitive_data('<FORM_STRING_ID>') do |interaction|
-    body = JSON.parse(interaction.response.body)
+    hubspot_form_url = HubspotClient::Client::Form.base_uri + HubspotClient::Client::Form::BASE_PATH_V3
 
-    body['results']&.first&.[]('id') if body['results']
+    if interaction.request.uri.start_with?(hubspot_form_url)
+      body = JSON.parse(interaction.response.body)
+      body&.[]('results')&.first&.[]('id')
+    end
   end
 end
 
