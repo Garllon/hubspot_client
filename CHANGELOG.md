@@ -1,13 +1,27 @@
+## 0.3.1
+
+### Features
+* add missing context and legalConsentOptions to submission client
+
+### Breaking Changes
+None
+
 ## 0.3.0
 
 ### Features
 * add client form, to get all forms
 * add client submission, to submit forms
 
+### Breaking Changes
+None
+
 ## 0.2.1 (2022-12-07)
 
 ### Patch
 * only update writeable properties
+
+### Breaking Changes
+None
 
 ## 0.2.0 (2022-12-02)
 
