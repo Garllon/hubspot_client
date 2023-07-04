@@ -137,11 +137,30 @@ The `fields` parameter is a list of objects with the following properties:
 ```ruby
 [
   {
-    "objectTypeId": '0-1',
+    "objectTypeId": '0-1', # Optional
     "name": 'email',
     "value": 'darth_garllon@example.com'
   }
 ]
+```
+
+the `context` parameter is a hash of the following attributes:
+```ruby
+{
+  "pageUri": 'https://example.com',
+  "pageName": 'Example page'
+}
+```
+
+The `leagalConsentOptions` parameter is a hash of the following attributes:
+```ruby
+{
+    consent: {
+      consentToProcess: true,
+      text: "I agree to allow #{company_name} to store and process my personal data.",
+      communications: []
+    }
+}
 ```
 
 ## Development

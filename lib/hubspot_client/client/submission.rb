@@ -8,10 +8,28 @@ module HubspotClient
 
       BASE_PATH_V3 = '/submissions/v3/integration/secure/submit'
 
-      def initialize(portal_id:, form_guid:, fields: [])
-        @portal_id = portal_id
-        @form_guid = form_guid
-        @fields    = fields
+      # EXAMPLES:
+      # fields: [{name: 'email', value: 'darth_garllon@example.com'}]
+      #
+      # context: {
+      #   pageUri: "https://example.com",
+      #   pageName: "Example page"
+      # }
+      #
+      # legal_consent_options: {
+      #   consent: {
+      #     consentToProcess: true,
+      #     text: "I agree to allow #{company_name} to store and process my personal data.",
+      #     communications: []
+      #   }
+      # }
+
+      def initialize(portal_id:, form_guid:, fields: [], context: {}, legal_consent_options: {})
+        @portal_id             = portal_id
+        @form_guid             = form_guid
+        @fields                = fields
+        @context               = context
+        @legal_consent_options = legal_consent_options
       end
 
       def submit
@@ -23,7 +41,9 @@ module HubspotClient
 
       def body
         {
-          "fields": @fields
+          fields: @fields,
+          context: @context,
+          legalConsentOptions: @legal_consent_options
         }
       end
 
