@@ -1,4 +1,5 @@
 .env
+.env.hubspot-dev
 .idea/
 .ruby-version
 coverage/*
